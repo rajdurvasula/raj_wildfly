@@ -1,0 +1,55 @@
+# JDK location 
+<%- if node['java']['java_home'] && ::File.exists?(node['java']['java_home']) %> 
+JAVA_HOME="<%= node['java']['java_home'] %>"
+<%- else %>
+JAVA_HOME=/usr/java/latest
+<%- end %>
+
+# Wildfly location
+<%- if node['wildfly']['home'] && ::File.exists?(node['wildfly']['home']) %>
+JBOSS_HOME="<%= node['wildfly']['home'] %>"
+<%- else %>
+JBOSS_HOME=/opt/wildfly
+<%- end %>
+
+# Wildfly user
+<%- if node['wildfly']['user'] %>
+JBOSS_USER=<%= node['wildfly']['user'] %>
+<%- else %>
+JBOSS_USER=wildfly
+<%- end %>
+
+# Wildfly mode
+<%- if node['wildfly']['sa']['conf'] %>
+JBOSS_CONFIG=<%= node['wildfly']['sa']['conf'] %>
+<%- else %>
+JBOSS_CONFIG=standalone
+<%- end %>
+
+# Wildfly startup wait
+<%- if node['wildfly']['initd']['startup_wait'] %>
+STARTUP_WAIT=<%= node['wildfly']['initd']['startup_wait'] %>
+<%- else %>
+STARTUP_WAIT=60
+<%- end %>
+
+# Wildfly shutdown wait
+<%- if node['wildfly']['initd']['shutdown_wait'] %>
+SHUTDOWN_WAIT=<%= node['wildfly']['initd']['shutdown_wait'] %>
+<%- else %>
+SHUTDOWN_WAIT=60
+<%- end %>
+
+# Wildfly configuration
+<%- if node['wildfly']['sa']['conf'] %>
+WILDFLY_CONF=<%= node['wildfly']['sa']['conf'] %>
+<%- else %>
+WILDFLY_CONF=standalone-full.xml
+<%- end %>
+
+# Console log location
+<%- if node['wildfly']['log']['console_log'] %>
+JBOSS_CONSOLE_LOG="<%= node['wildfly']['log']['console_log'] %>"
+<%- else %>
+JBOSS_CONSOLE_LOG="/var/log/wildfly/console.log"
+<%- end %>
