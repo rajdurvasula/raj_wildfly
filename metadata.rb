@@ -16,3 +16,5 @@ version '0.1.0'
 
 supports 'centos'
 
+depends 'yum'
+depends 'java','~> 1.22'
