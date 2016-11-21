@@ -2,5 +2,5 @@ source 'https://supermarket.chef.io'
 
 metadata
 
-cookbook 'yum',git:'https://github.com/chef-cookbooks/yum.git'
-cookbook 'java','~> 1.22',git:'https://github.com/cookbooks/java.git'
+cookbook 'yum', path: '/root/.berkshelf/cookbooks/yum-4.1.0'
+cookbook 'java', git: '/root/.berkshelf/cookbooks/java-1.42.0'
